@@ -1,0 +1,2020 @@
+<style>
+  :root {
+    --primary: #38b2ac;
+    --primary-dark: #2c7a7b;
+    --secondary: #4fd1c5;
+    --dark: #1a202c;
+    --light: #f7fafc;
+    --accent: #f56565;
+    --gray-100: #f7fafc;
+    --gray-200: #edf2f7;
+    --gray-300: #e2e8f0;
+    --gray-400: #cbd5e0;
+    --gray-500: #a0aec0;
+    --gray-600: #718096;
+    --gray-700: #4a5568;
+    --gray-800: #2d3748;
+    --gray-900: #1a202c;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  header {
+    background-color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid var(--secondary);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    color: var(--secondary);
+    margin-left: 2px;
+  }
+
+  .logo-icon {
+    margin-right: 8px;
+    font-size: 32px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links li {
+    margin-left: 40px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--gray-700);
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    padding-bottom: 5px;
+  }
+
+  .nav-links a:hover {
+    color: var(--primary);
+  }
+
+  .nav-links a:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover:after {
+    width: 100%;
+  }
+
+  .cta-button {
+    background-color: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid var(--primary);
+    box-shadow: 0 4px 10px rgba(56, 178, 172, 0.3);
+  }
+
+  .cta-button:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(56, 178, 172, 0.4);
+  }
+
+  .hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url("https://cdn.pixabay.com/photo/2017/09/27/15/52/dog-2792120_1280.jpg")
+        center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 180px 20px;
+    position: relative;
+  }
+
+  .hero:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle,
+      rgba(79, 209, 197, 0.2) 0%,
+      rgba(26, 32, 44, 0.4) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero p {
+    font-size: 22px;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+
+  .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .secondary-button {
+    background-color: transparent;
+    color: white;
+    padding: 12px 25px;
+    border: 2px solid white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .secondary-button:hover {
+    background-color: white;
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.15);
+  }
+
+  .services {
+    padding: 100px 0;
+    background-color: white;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-header h2 {
+    font-size: 40px;
+    color: var(--dark);
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+    display: inline-block;
+  }
+
+  .section-header h2:after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+  }
+
+  .section-header p {
+    color: var(--gray-600);
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 18px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 40px;
+  }
+
+  .service-card {
+    background-color: var(--gray-100);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .service-image img {
+    transition: transform 0.5s;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-card:hover .service-image img {
+    transform: scale(1.05);
+  }
+
+  .service-content {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-content h3 {
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .service-content p {
+    color: var(--gray-700);
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    margin-top: auto;
+  }
+
+  .service-link:hover {
+    color: var(--primary-dark);
+    transform: translateX(5px);
+  }
+
+  .about {
+    padding: 100px 0;
+    background-color: var(--gray-100);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .about-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+
+  .about-image:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      rgba(56, 178, 172, 0.3),
+      rgba(79, 209, 197, 0.1)
+    );
+    z-index: 1;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s;
+  }
+
+  .about-image:hover img {
+    transform: scale(1.05);
+  }
+
+  .about-text {
+    position: relative;
+  }
+
+  .about-text h2 {
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: var(--dark);
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .about-text h2:after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background: var(--primary);
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+  }
+
+  .about-text p {
+    margin-bottom: 20px;
+    color: var(--gray-700);
+    font-size: 17px;
+  }
+
+  .about-text .cta-button {
+    margin-top: 15px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .stat-number {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .stat-text {
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+
+  .team {
+    padding: 100px 0;
+    background-color: white;
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+
+  .team-member {
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    background: var(--gray-100);
+    border-radius: 12px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+
+  .team-member:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: white;
+  }
+
+  .member-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    overflow: hidden;
+    background-color: var(--gray-200);
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+  }
+
+  .team-member:hover .member-image {
+    border-color: var(--primary);
+    transform: scale(1.05);
+  }
+
+  .member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  .team-member:hover .member-image img {
+    transform: scale(1.1);
+  }
+
+  .member-name {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--dark);
+    font-weight: 600;
+  }
+
+  .member-role {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+    font-size: 16px;
+  }
+
+  .team-member p {
+    color: var(--gray-600);
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+
+  .member-socials {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--gray-200);
+    color: var(--gray-700);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .social-icon:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+  }
+
+  .testimonials {
+    padding: 100px 0;
+    background: linear-gradient(
+      135deg,
+      var(--primary-dark) 0%,
+      var(--primary) 100%
+    );
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.8;
+  }
+
+  .testimonials .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonials .section-header h2 {
+    color: white;
+  }
+
+  .testimonials .section-header h2:after {
+    background: white;
+  }
+
+  .testimonials .section-header p {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+  }
+
+  .testimonial-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 30px;
+    color: var(--dark);
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .testimonial-card:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    font-size: 80px;
+    color: var(--primary);
+    opacity: 0.15;
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-style: italic;
+    margin-bottom: 25px;
+    color: var(--gray-700);
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+  }
+
+  .author-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-color: var(--gray-200);
+    overflow: hidden;
+    border: 3px solid var(--primary);
+  }
+
+  .author-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .author-info h4 {
+    margin-bottom: 5px;
+    color: var(--dark);
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .author-info p {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .contact {
+    padding: 100px 0;
+    background-color: var(--gray-100);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 60px;
+  }
+
+  .contact-info {
+    margin-bottom: 40px;
+  }
+
+  .contact-info h3 {
+    margin-bottom: 25px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .contact-info h3:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(56, 178, 172, 0.3);
+    flex-shrink: 0;
+  }
+
+  .contact-method div p {
+    margin-bottom: 5px;
+    color: var(--gray-700);
+  }
+
+  .contact-method div p:last-child {
+    color: var(--gray-600);
+    font-size: 14px;
+  }
+
+  .contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    height: 100%;
+  }
+
+  .contact-form h3 {
+    margin-bottom: 25px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 12px;
+  }
+
+  .contact-form h3:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background: var(--primary);
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(56, 178, 172, 0.2);
+  }
+
+  .contact-form textarea {
+    height: 150px;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    background-color: var(--primary);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(56, 178, 172, 0.3);
+    border: 2px solid var(--primary);
+    font-family: inherit;
+  }
+
+  .contact-form button:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(56, 178, 172, 0.4);
+  }
+
+  footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 80px 0 30px;
+    position: relative;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 50px;
+    margin-bottom: 60px;
+  }
+
+  .footer-column h3 {
+    margin-bottom: 25px;
+    font-size: 20px;
+    position: relative;
+    padding-bottom: 12px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .footer-column h3:after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+  }
+
+  .footer-column ul {
+    list-style: none;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 12px;
+  }
+
+  .footer-column a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .footer-column a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+  }
+
+  .footer-column p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 15px;
+    line-height: 1.7;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 18px;
+  }
+
+  .social-link:hover {
+    background-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(56, 178, 172, 0.3);
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+  }
+
+  /* Add animated elements */
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+    }
+
+    .section-header h2 {
+      font-size: 36px;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+    }
+
+    .about-text h2 {
+      font-size: 32px;
+    }
+
+    .hero {
+      padding: 120px 20px;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .secondary-button,
+    .cta-button {
+      width: 100%;
+      text-align: center;
+    }
+
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero h1 {
+      font-size: 32px;
+    }
+
+    .services-grid,
+    .testimonial-grid,
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 28px;
+    }
+
+    .contact-form {
+      padding: 30px 20px;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+  }</style
+><!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VetHub - Professionelle Tierärztliche Versorgung</title>
+    <style>
+      :root {
+        --primary: #3498db;
+        --secondary: #2ecc71;
+        --dark: #2c3e50;
+        --light: #ecf0f1;
+        --accent: #e74c3c;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: var(--primary);
+      }
+
+      .logo span {
+        color: var(--secondary);
+      }
+
+      .logo-icon {
+        margin-right: 10px;
+        font-size: 28px;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--dark);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .cta-button {
+        background-color: var(--primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .cta-button:hover {
+        background-color: #2980b9;
+        color: white;
+      }
+
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://cdn.pixabay.com/photo/2017/09/27/15/52/dog-2792120_1280.jpg")
+            center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 150px 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 0 auto 40px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .secondary-button {
+        background-color: transparent;
+        color: white;
+        padding: 10px 20px;
+        border: 2px solid white;
+        border-radius: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+
+      .secondary-button:hover {
+        background-color: white;
+        color: var (--primary);
+      }
+
+      .services {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-header h2 {
+        font-size: 36px;
+        color: var(--dark);
+        margin-bottom: 20px;
+      }
+
+      .section-header p {
+        color: #7f8c8d;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background-color: var(--light);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-image {
+        height: 200px;
+        background-color: #ddd;
+        position: relative;
+      }
+
+      .service-content {
+        padding: 20px;
+      }
+
+      .service-content h3 {
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .about {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .about-content {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .about-image {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text {
+        flex: 1;
+      }
+
+      .about-text h2 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: var(--dark);
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+      }
+
+      .team {
+        padding: 80px 0;
+        background-color: white;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .team-member {
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .team-member:hover {
+        transform: translateY(-10px);
+      }
+
+      .member-image {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        overflow: hidden;
+        background-color: #ddd;
+      }
+
+      .member-name {
+        font-size: 20px;
+        margin-bottom: 5px;
+        color: var(--dark);
+      }
+
+      .member-role {
+        color: var(--primary);
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+
+      .testimonials {
+        padding: 80px 0;
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .testimonials .section-header h2 {
+        color: white;
+      }
+
+      .testimonials .section-header p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .testimonial-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        color: var(--dark);
+        position: relative;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        background-color: #ddd;
+      }
+
+      .author-info h4 {
+        margin-bottom: 5px;
+      }
+
+      .author-info p {
+        color: #7f8c8d;
+        font-size: 14px;
+      }
+
+      .contact {
+        padding: 80px 0;
+        background-color: var(--light);
+      }
+
+      .contact-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px;
+      }
+
+      .contact-info {
+        margin-bottom: 30px;
+      }
+
+      .contact-info h3 {
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .contact-form textarea {
+        height: 150px;
+        resize: vertical;
+      }
+
+      .contact-form button {
+        background-color: var(--primary);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .contact-form button:hover {
+        background-color: #2980b9;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 80px 0 30px;
+        position: relative;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 50px;
+        margin-bottom: 60px;
+      }
+
+      .footer-column h3 {
+        margin-bottom: 25px;
+        font-size: 20px;
+        position: relative;
+        padding-bottom: 12px;
+        color: white;
+        font-weight: 600;
+      }
+
+      .footer-column h3:after {
+        content: "";
+        position: absolute;
+        width: 40px;
+        height: 3px;
+        background: var(--primary);
+        bottom: 0;
+        left: 0;
+        border-radius: 2px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-column a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s;
+        display: inline-block;
+      }
+
+      .footer-column a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .footer-column p {
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 15px;
+        line-height: 1.7;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 18px;
+      }
+
+      .social-link:hover {
+        background-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(56, 178, 172, 0.3);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .hero p {
+          font-size: 18px;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-image,
+        .about-text {
+          flex: initial;
+          width: 100%;
+        }
+
+        .footer-content {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <div class="logo-icon">🐾</div>
+            Vet<span>Hub</span>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#home">Startseite</a></li>
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#about">Über Uns</a></li>
+            <li><a href="#team">Unser Team</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#" class="cta-button">Termin Buchen</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <section
+      id="home"
+      class="hero"
+      style="
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url('https://cdn.pixabay.com/photo/2017/02/15/12/12/cat-2068462_1280.jpg')
+            center/cover no-repeat;
+      "
+    >
+      <div class="container">
+        <h1>Professionelle Pflege für Ihre geliebten Haustiere</h1>
+        <p>
+          VetHub bietet umfassende tierärztliche Dienstleistungen mit
+          Schwerpunkt auf Mitgefühl, Fachwissen und modernster medizinischer
+          Versorgung für alle Tierarten.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="cta-button">Termin Buchen</a>
+          <a href="#services" class="secondary-button">Unsere Leistungen</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Unsere Leistungen</h2>
+          <p>
+            Wir bieten eine breite Palette an tierärztlichen Dienstleistungen,
+            um Ihre Haustiere gesund und glücklich zu halten.
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2017/07/25/01/22/cat-2536662_1280.jpg"
+                alt="Vorsorgeuntersuchungen"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Vorsorgeuntersuchungen</h3>
+              <p>
+                Regelmäßige Check-ups zur Sicherstellung der optimalen
+                Gesundheit Ihres Haustiers und zur frühzeitigen Erkennung
+                potenzieller Probleme.
+              </p>
+              <a href="#" class="service-link">Mehr erfahren →</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2022/10/20/19/07/cat-7535880_1280.jpg"
+                alt="Impfungen"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Impfungen</h3>
+              <p>
+                Schutz vor häufigen Krankheiten, die die Gesundheit und
+                Lebensqualität Ihres Haustiers beeinträchtigen können.
+              </p>
+              <a href="#" class="service-link">Mehr erfahren →</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2016/08/04/16/35/veterinary-surgery-1569868_1280.jpg"
+                alt="Chirurgie"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Chirurgische Eingriffe</h3>
+              <p>
+                Von routinemäßiger Kastration und Sterilisation bis hin zu
+                komplexen Operationen, durchgeführt nach höchsten
+                Pflegestandards.
+              </p>
+              <a href="#" class="service-link">Mehr erfahren →</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2019/08/19/07/45/dog-4415649_1280.jpg"
+                alt="Zahnpflege"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Zahnpflege</h3>
+              <p>
+                Umfassende Zahnpflegedienste zur Vorbeugung von Erkrankungen und
+                Erhaltung der Mundgesundheit Ihres Haustiers.
+              </p>
+              <a href="#" class="service-link">Mehr erfahren →</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2015/06/01/00/20/veterinarian-792582_1280.jpg"
+                alt="Notfallversorgung"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Notfallversorgung</h3>
+              <p>
+                Sofortige Aufmerksamkeit für unerwartete Krankheiten oder
+                Verletzungen, die dringende Pflege erfordern.
+              </p>
+              <a href="#" class="service-link">Mehr erfahren →</a>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2020/10/05/19/55/dog-5630343_1280.jpg"
+                alt="Ernährungsberatung"
+              />
+            </div>
+            <div class="service-content">
+              <h3>Ernährungsberatung</h3>
+              <p>
+                Fachkundige Beratung zur richtigen Ernährung, zugeschnitten auf
+                die spezifischen Bedürfnisse und Gesundheitszustände Ihres
+                Haustiers.
+              </p>
+              <a href="#" class="service-link">Mehr erfahren →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-image">
+            <img
+              src="https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg"
+              alt="Über VetHub"
+            />
+          </div>
+          <div class="about-text">
+            <h2>Über VetHub</h2>
+            <p>
+              Seit der Gründung im Jahr 2010 bietet VetHub seit über 15 Jahren
+              außergewöhnliche tierärztliche Betreuung für Haustiere und ihre
+              Familien. Unsere hochmoderne Einrichtung ist mit neuester
+              Technologie ausgestattet, um sicherzustellen, dass Ihre Haustiere
+              die bestmögliche Versorgung erhalten.
+            </p>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-text">Jahre Erfahrung</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">8,500+</span>
+                <span class="stat-text">Glückliche Haustiere</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">12</span>
+                <span class="stat-text">Experten</span>
+              </div>
+            </div>
+
+            <p>
+              Unsere Mission ist es, die Lebensqualität von Haustieren zu
+              verbessern, indem wir mitfühlende, umfassende und fortschrittliche
+              tierärztliche Versorgung bieten und gleichzeitig Tierbesitzer bei
+              der Entscheidungsfindung über die Gesundheit ihrer Haustiere
+              unterstützen und aufklären.
+            </p>
+
+            <p>
+              Bei VetHub verstehen wir, dass Ihre Haustiere geschätzte
+              Familienmitglieder sind, und wir behandeln sie mit dem gleichen
+              Respekt, der gleichen Liebe und Aufmerksamkeit, die wir unseren
+              eigenen Haustieren entgegenbringen würden.
+            </p>
+
+            <a href="#team" class="cta-button">Unser Team Kennenlernen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team">
+      <div class="container">
+        <div class="section-header">
+          <h2>Unser Tierärztliches Team</h2>
+          <p>
+            Lernen Sie unser engagiertes Team von Tiermedizinern kennen, die
+            sich der bestmöglichen Versorgung Ihrer Haustiere verschrieben
+            haben.
+          </p>
+        </div>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2017/08/01/08/29/woman-2563491_1280.jpg"
+                alt="Dr. Sarah Johnson"
+              />
+            </div>
+            <h3 class="member-name">Dr. Sarah Johnson</h3>
+            <p class="member-role">Cheftierärztin</p>
+            <p>
+              Mit über 15 Jahren Erfahrung ist Dr. Johnson Spezialistin für
+              Kleintiermedizin und -chirurgie.
+            </p>
+            <div class="member-socials">
+              <a href="#" class="social-icon">in</a>
+              <a href="#" class="social-icon">f</a>
+              <a href="#" class="social-icon">t</a>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2017/07/31/11/31/people-2557396_1280.jpg"
+                alt="Dr. Michael Chen"
+              />
+            </div>
+            <h3 class="member-name">Dr. Michael Chen</h3>
+            <p class="member-role">Tierchirurg</p>
+            <p>
+              Dr. Chen ist Experte für fortgeschrittene chirurgische Eingriffe
+              mit einer Leidenschaft für Orthopädie.
+            </p>
+            <div class="member-socials">
+              <a href="#" class="social-icon">in</a>
+              <a href="#" class="social-icon">f</a>
+              <a href="#" class="social-icon">t</a>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2019/11/03/20/11/portrait-4599553_1280.jpg"
+                alt="Dr. Emily Rodriguez"
+              />
+            </div>
+            <h3 class="member-name">Dr. Emily Rodriguez</h3>
+            <p class="member-role">Tierzahnärztin</p>
+            <p>
+              Als Spezialistin für Zahngesundheit sorgt Dr. Rodriguez dafür,
+              dass das Lächeln Ihres Haustiers gesund und schmerzfrei bleibt.
+            </p>
+            <div class="member-socials">
+              <a href="#" class="social-icon">in</a>
+              <a href="#" class="social-icon">f</a>
+              <a href="#" class="social-icon">t</a>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-image">
+              <img
+                src="https://cdn.pixabay.com/photo/2018/03/06/22/57/portrait-3204843_1280.jpg"
+                alt="Lisa Thompson"
+              />
+            </div>
+            <h3 class="member-name">Lisa Thompson</h3>
+            <p class="member-role">Leitende Tiermedizinische Fachangestellte</p>
+            <p>
+              Lisa überwacht unser technisches Team und stellt die höchsten
+              Standards der Patientenversorgung sicher.
+            </p>
+            <div class="member-socials">
+              <a href="#" class="social-icon">in</a>
+              <a href="#" class="social-icon">f</a>
+              <a href="#" class="social-icon">t</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <h2>Was Unsere Kunden Sagen</h2>
+          <p>
+            Wir sind stolz auf das positive Feedback, das wir von Tierbesitzern
+            erhalten, die uns ihre geliebten Begleiter anvertrauen.
+          </p>
+        </div>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Das Team von VetHub kümmert sich seit Jahren um meine Hunde. Ihre
+              Expertise und echte Liebe zu Tieren machen den entscheidenden
+              Unterschied. Ich würde niemand anderem die Gesundheit meiner
+              Haustiere anvertrauen."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img
+                  src="https://cdn.pixabay.com/photo/2016/11/29/13/14/attractive-1869761_1280.jpg"
+                  alt="Jennifer Williams"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Jennifer Williams</h4>
+                <p>Hundebesitzerin</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Als meine Katze eine Notoperation brauchte, war das VetHub-Team
+              einfach großartig. Sie haben alles klar erklärt, den Eingriff mit
+              Fachwissen durchgeführt und während der Genesung konsequent
+              nachgefragt."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img
+                  src="https://cdn.pixabay.com/photo/2015/01/08/18/29/entrepreneur-593358_1280.jpg"
+                  alt="Marcus Johnson"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Marcus Johnson</h4>
+                <p>Katzenbesitzer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Als Haustierbesitzer zum ersten Mal hatte ich so viele Fragen.
+              Das VetHub-Personal war während des ersten Jahres meines Welpen
+              unglaublich geduldig, lehrreich und unterstützend. Ich bin so
+              dankbar für ihre Anleitung!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-image">
+                <img
+                  src="https://cdn.pixabay.com/photo/2017/02/04/12/25/man-2037255_1280.jpg"
+                  alt="Priya Patel"
+                />
+              </div>
+              <div class="author-info">
+                <h4>Priya Patel</h4>
+                <p>Welpenbesitzerin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Kontaktieren Sie Uns</h2>
+          <p>
+            Haben Sie Fragen oder möchten Sie einen Termin vereinbaren?
+            Kontaktieren Sie uns über einen dieser Kanäle.
+          </p>
+        </div>
+        <div class="contact-content">
+          <div>
+            <div class="contact-info">
+              <h3>Kontaktinformationen</h3>
+              <div class="contact-method">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <p>123 Tiergesundheitsallee</p>
+                  <p>Musterstadt, ST 12345</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">📱</div>
+                <div>
+                  <p>(555) 123-4567</p>
+                  <p>Mo-Fr: 8:00-18:00, Sa: 9:00-14:00</p>
+                </div>
+              </div>
+              <div class="contact-method">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <p>info@vethub.com</p>
+                  <p>24/7 für Notfälle</p>
+                </div>
+              </div>
+            </div>
+            <div class="contact-info">
+              <h3>Notfalldienste</h3>
+              <p>
+                Bei Notfällen außerhalb der Öffnungszeiten rufen Sie bitte
+                unsere Notfallnummer <strong>(555) 999-8888</strong> an. Wir
+                bieten rund um die Uhr Notfallversorgung für dringende
+                Situationen.
+              </p>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3>Senden Sie uns eine Nachricht</h3>
+            <form>
+              <input type="text" placeholder="Ihr Name" required />
+              <input type="email" placeholder="Ihre E-Mail" required />
+              <input type="tel" placeholder="Ihre Telefonnummer" />
+              <input type="text" placeholder="Name & Art des Haustiers" />
+              <textarea placeholder="Wie können wir Ihnen helfen?"></textarea>
+              <button type="submit">Nachricht Senden</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Über Uns</h3>
+            <p>
+              VetHub widmet sich der bestmöglichen tierärztlichen Versorgung
+              Ihrer geliebten Haustiere. Unser Team erfahrener Fachleute sorgt
+              dafür, dass Ihre Haustiere gesund und glücklich sind.
+            </p>
+            <img
+              src="https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg"
+              alt="Katze und Hund"
+              style="width: 100%; border-radius: 8px; margin-top: 15px"
+            />
+            <ul class="social-links">
+              <li><a href="#" class="social-link">f</a></li>
+              <li><a href="#" class="social-link">t</a></li>
+              <li><a href="#" class="social-link">in</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Schnellzugriff</h3>
+            <ul>
+              <li><a href="#home">Startseite</a></li>
+              <li><a href="#services">Leistungen</a></li>
+              <li><a href="#about">Über Uns</a></li>
+              <li><a href="#team">Unser Team</a></li>
+              <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <img
+              src="https://cdn.pixabay.com/photo/2015/06/08/15/02/pug-801826_1280.jpg"
+              alt="Süßer Hund"
+              style="width: 100%; border-radius: 8px; margin-top: 15px"
+            />
+          </div>
+          <div class="footer-column">
+            <h3>Unsere Leistungen</h3>
+            <ul>
+              <li><a href="#services">Vorsorgeuntersuchungen</a></li>
+              <li><a href="#services">Impfungen</a></li>
+              <li><a href="#services">Chirurgische Eingriffe</a></li>
+              <li><a href="#services">Zahnpflege</a></li>
+              <li><a href="#services">Notfallversorgung</a></li>
+            </ul>
+            <img
+              src="https://cdn.pixabay.com/photo/2016/01/19/17/41/friends-1149841_1280.jpg"
+              alt="Tierarzt mit Hund"
+              style="width: 100%; border-radius: 8px; margin-top: 15px"
+            />
+          </div>
+          <div class="footer-column">
+            <h3>Öffnungszeiten</h3>
+            <ul>
+              <li>Montag-Freitag: 8:00 - 18:00 Uhr</li>
+              <li>Samstag: 9:00 - 14:00 Uhr</li>
+              <li>Sonntag: Geschlossen</li>
+              <li>Notfalldienst: 24/7</li>
+            </ul>
+            <img
+              src="https://cdn.pixabay.com/photo/2015/09/05/22/46/dog-925330_1280.jpg"
+              alt="Tierarztbesuch"
+              style="width: 100%; border-radius: 8px; margin-top: 15px"
+            />
+          </div>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 2025 VetHub. Alle Rechte vorbehalten. | Datenschutzerklärung
+            | Nutzungsbedingungen
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
